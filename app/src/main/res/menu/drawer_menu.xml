@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/article_drawer"
+            android:icon="@drawable/article"
+            android:title="@string/article" />
+        <item
+            android:id="@+id/processing_drawer"
+            android:icon="@drawable/processing"
+            android:title="@string/processing" />
+        <item
+            android:id="@+id/officer_drawer"
+            android:icon="@drawable/officer"
+            android:title="@string/officer" />
+        <item
+            android:id="@+id/event_drawer"
+            android:icon="@drawable/event"
+            android:title="@string/events" />
+        <item
+            android:id="@+id/forum_drawer"
+            android:icon="@drawable/forum"
+            android:title="@string/forum" />
+
+    </group>
+
+    <item android:title="@string/preferences">
+        <menu>
+            <item
+                android:id="@+id/app_setting"
+                android:icon="@drawable/setting"
+                android:title="@string/app_setting" />
+        </menu>
+    </item>
+
+    <item android:title="@string/communicate">
+        <menu>
+            <item
+                android:id="@+id/share_feedback"
+                android:icon="@drawable/feedback"
+                android:title="@string/feedback" />
+            <item
+                android:id="@+id/share_app"
+                android:icon="@drawable/share"
+                android:title="@string/share" />
+        </menu>
+
+
+    </item>
+
+</menu>

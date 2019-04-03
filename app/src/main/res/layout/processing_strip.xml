@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="4dp"
+    android:layout_margin="4dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/processing_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/processing"
+            android:src="@drawable/processing" />
+
+        <TextView
+            android:id="@+id/processing_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/processing_img"
+            android:layout_toLeftOf="@+id/processing_img"
+            android:gravity="center"
+            android:text="@string/processing_title"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/processing_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/processing_title"
+            android:layout_toStartOf="@+id/processing_img"
+            android:layout_toLeftOf="@+id/processing_img"
+            android:text="@string/desc" />
+
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/like_processing_article"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/processing_desc"
+            android:layout_marginTop="4dp"
+
+            app:allow_random_color="true"
+            app:btn_color="@color/colorPrimary"
+            app:btn_fill_color="@color/colorAccent"
+            app:enable_flashing="true"
+            app:shine_animation_duration="1200"
+            app:shine_count="8"
+            app:shine_turn_angle="45"
+            app:siShape="@android:drawable/star_big_on" />
+
+        <ImageView
+            android:id="@+id/share_processing_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/processing_desc"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/share"
+            android:src="@android:drawable/ic_menu_share" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

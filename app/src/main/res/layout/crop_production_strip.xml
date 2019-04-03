@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/article_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/crop_production"
+            android:src="@drawable/crop" />
+
+        <TextView
+            android:id="@+id/article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/article_type"
+            android:layout_toRightOf="@+id/article_type"
+            android:gravity="center"
+            android:text="@string/crop_production"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/article_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/article_type"
+            android:text="@string/desc" />
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/like_article"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/article_desc"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+
+            app:allow_random_color="true"
+            app:btn_color="@color/colorPrimary"
+            app:btn_fill_color="@color/colorAccent"
+            app:enable_flashing="true"
+            app:shine_animation_duration="1200"
+            app:shine_count="8"
+            app:shine_turn_angle="45"
+            app:siShape="@android:drawable/star_on" />
+
+        <ImageView
+            android:id="@+id/share_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/article_desc"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/share_article"
+            android:src="@android:drawable/ic_menu_share" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

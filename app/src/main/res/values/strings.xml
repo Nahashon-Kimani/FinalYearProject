@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Agritech</string>
+    <string name="app_setting">Setting</string>
+    <string name="preferences">Preferences</string>
+    <string name="processing">Processing</string>
+    <string name="officer">Contact Officer</string>
+    <string name="events">Events</string>
+    <string name="forum">Forum</string>
+    <string name="slogan">Training at the highest levels</string>
+    <string name="navigation_open">Open Navigation View</string>
+    <string name="navigation_close">Close Navigation View</string>
+    <string name="article">Articles</string>
+    <string name="communicate">Communicate</string>
+    <string name="feedback">Help and Feedback</string>
+    <string name="share">Share</string>
+    <string name="animal_production">Animal Production</string>
+    <string name="crop_production">Crop Production</string>
+    <string name="trends">Trends</string>
+    <string name="office_name">John Smith</string>
+    <string name="location">Location</string>
+    <string name="sub_county">Sub County</string>
+    <string name="county">County</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="tel">0705610800</string>
+    <string name="market">Market</string>
+    <string name="county_name">Kilifi</string>
+    <string name="event_name">Event Title</string>
+    <string name="desc">This is a long text to allow me test the text view how they are working. Also help in
+    setting the eclipse style to allow the three dots such that once the user click on the card view he or she
+    can read the whole article in another activity. That\'s my idea</string>
+    <string name="like">Like Article</string>
+    <string name="share_article">Share Article</string>
+    <string name="event_date">April 2 2018</string>
+    <string name="event_background">Event Background</string>
+    <string name="entry_fee">Entry Fee</string>
+    <string name="processing_title">Processing Title</string>
+</resources>

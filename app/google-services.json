@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "461986305700",
+    "firebase_url": "https://agritech-d9e3d.firebaseio.com",
+    "project_id": "agritech-d9e3d",
+    "storage_bucket": "agritech-d9e3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461986305700:android:ea8d09e5d4b43374",
+        "android_client_info": {
+          "package_name": "com.agritech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461986305700-phrjfnmnqb1p0nus6tdc5r8acdrqp47l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.agritech",
+            "certificate_hash": "29b7edd8798e5a0759e3e5d41a2f1dc24dcf4a50"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD4NXadwgVpRZ-0kA1Q4cp4b38vOEUsN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461986305700-cbrdpulg5j6s5kdm3qjmc8qqiqlif5vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
