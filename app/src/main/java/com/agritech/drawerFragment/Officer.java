@@ -18,6 +18,8 @@ public class Officer extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.officer_fragment_strip, container, false);
+        view = inflater.inflate(R.layout.recycler_view_layout, container, false);
+
+        return view;
     }
 }
