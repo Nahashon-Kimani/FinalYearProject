@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
     android:layout_marginTop="2dp"
+    android:id="@+id/call_officer"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp">
 
@@ -47,6 +48,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/officer_location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
@@ -70,6 +72,7 @@
                 android:text="@string/sub_county" />
 
             <TextView
+                android:id="@+id/officer_sub_county"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
@@ -92,6 +95,7 @@
                 android:text="@string/county" />
 
             <TextView
+                android:id="@+id/officer_county"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
@@ -114,6 +118,7 @@
                 android:text="@string/phone_no" />
 
             <TextView
+                android:id="@+id/phone_no"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"

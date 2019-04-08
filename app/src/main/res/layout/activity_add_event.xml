@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AddEvent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/e_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/event_name"
+            android:inputType="text|textCapWords"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/e_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/event_date"
+            android:inputType="date"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/e_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/event_location"
+            android:inputType="text|textCapWords"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/e_entry_fee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/event_fee"
+            android:inputType="text|textCapWords"
+            android:maxLength="20" />
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit" />
+    </LinearLayout>
+
+</ScrollView>

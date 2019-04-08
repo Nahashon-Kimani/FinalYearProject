@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.agritech.MainActivity;
 import com.agritech.R;
 import com.agritech.adapter.ArticleRecyclerAdapter;
 import com.agritech.model.ArticlesModel;
@@ -23,11 +23,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class AnimalProduction extends Fragment {
-    View view;
     FirebaseDatabase mDatabase;
     DatabaseReference mRef;
+    View view;
+    RecyclerView cropRecyclerView;
     ArrayList<ArticlesModel> modelArrayList = new ArrayList<>();
-    RecyclerView animalRecyclerView;
+    ArticlesModel articlesModel;
 
     public AnimalProduction() {
 
@@ -37,30 +38,26 @@ public class AnimalProduction extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.recycler_view_layout, container, false);
-        animalRecyclerView = view.findViewById(R.id.article_recycler_view);
-
+        cropRecyclerView = view.findViewById(R.id.article_recycler_view);
 
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference().child("Animal Production");
 
-       /* ArticlesModel model = new ArticlesModel("Title", "Description of the topic under the title","Animal Production", "1/9/2019");
-        mRef.push().setValue(model);*/
-
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot:dataSnapshot.getChildren() ) {
                     modelArrayList.add(snapshot.getValue(ArticlesModel.class));
                 }
                 LinearLayoutManager manager = new LinearLayoutManager(getActivity());
                 manager.setOrientation(LinearLayoutManager.VERTICAL);
-                animalRecyclerView.setLayoutManager(manager);
-                animalRecyclerView.setAdapter(new ArticleRecyclerAdapter(getContext(), modelArrayList));
+                cropRecyclerView.setLayoutManager(manager);
+                cropRecyclerView.setAdapter(new ArticleRecyclerAdapter(getActivity(), modelArrayList));
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "An Error occurred" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
 

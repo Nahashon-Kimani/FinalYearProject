@@ -27,6 +27,9 @@
     <string name="event_name">Event Title</string>
     <string name="desc">This is a long text to allow me test the text view how they are working. Also help in
     setting the eclipse style to allow the three dots such that once the user click on the card view he or she
+    can read the whole article in another activity. That\'s my ideaThis is a long text to allow me test the text
+        view how they are working. Also help in
+    setting the eclipse style to allow the three dots such that once the user click on the card view he or she
     can read the whole article in another activity. That\'s my idea</string>
     <string name="like">Like Article</string>
     <string name="share_article">Share Article</string>
@@ -34,4 +37,11 @@
     <string name="event_background">Event Background</string>
     <string name="entry_fee">Entry Fee</string>
     <string name="processing_title">Processing Title</string>
+    <string name="free">Free</string>
+    <string name="event_status">Event Status</string>
+    <string name="event_location">Location</string>
+    <string name="event_fee">Entry Fee</string>
+    <string name="submit">Submit</string>
+    <string name="send">Send</string>
+    <string name="sender">sender</string>
 </resources>
