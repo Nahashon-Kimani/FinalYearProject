@@ -1,6 +1,7 @@
 package com.agritech.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.agritech.R;
 import com.agritech.model.EventModel;
@@ -32,7 +32,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder myHolder, int i) {
+    public void onBindViewHolder(@NonNull MyHolder myHolder, final int i) {
         myHolder.eventTitle.setText(eventModelArrayList.get(i).getEventTitle());
         myHolder.eventDate.setText(eventModelArrayList.get(i).getEventDate());
         myHolder.eventLocation.setText(eventModelArrayList.get(i).getEventLocation());
@@ -41,7 +41,15 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         myHolder.shareEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Share Event", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND)
+                        .putExtra(Intent.EXTRA_TEXT,
+                                "You are invited to attend " + eventModelArrayList.get(i).getEventTitle() +
+                                        "on \\s" + eventModelArrayList.get(i).getEventDate() + "event \\s" +
+                                        "at\\s " + eventModelArrayList.get(i).getEventLocation() + ".");
+                intent.setType("text/plain");
+                v.getContext().startActivity(Intent.createChooser(intent, eventModelArrayList.get(i).getEventTitle()));
+
             }
         });
     }

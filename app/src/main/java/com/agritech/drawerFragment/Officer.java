@@ -6,9 +6,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.agritech.R;
 import com.agritech.adapter.OfficerRecyclerAdapter;
@@ -29,6 +34,7 @@ public class Officer extends Fragment {
     ArrayList<OfficerModel>officerList = new ArrayList<>();
 
 
+
     public Officer() {}
 
     @Nullable
@@ -37,6 +43,22 @@ public class Officer extends Fragment {
         view = inflater.inflate(R.layout.recycler_view_layout, container, false);
         officerRecyclerView = view.findViewById(R.id.article_recycler_view);
 
+        /* Toolbar  toolbar = view.findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.officer_menu);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.search_officer:
+                        Toast.makeText(getContext(), "Yeah niko hapa", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
+            }
+        });*/
+
+        //this.setHasOptionsMenu(true);
+        this.setHasOptionsMenu(true);
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference().child("Contact Officer");
 
@@ -54,10 +76,37 @@ public class Officer extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
         return view;
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setHasOptionsMenu(true);
+        this.setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        Log.e("menu", "Niko hapa");
+        menuInflater.inflate(R.menu.officer_menu, menu);
+        super.onCreateOptionsMenu(menu, menuInflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.search_officer:
+                Toast.makeText(getContext(), "Yeah niko hapa", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
 }

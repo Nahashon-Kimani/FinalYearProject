@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="2dp"
+    android:id="@+id/article_card_view"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp">
 
@@ -27,7 +28,7 @@
             android:gravity="center"
             android:text="@string/crop_production"
             android:textAllCaps="true"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView

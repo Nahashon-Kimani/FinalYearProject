@@ -1,9 +1,11 @@
 package com.agritech;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
+    public static long backPressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,18 @@ public class MainActivity extends AppCompatActivity {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            if (backPressed + 2000 > System.currentTimeMillis()) {
+                super.onBackPressed();
+            } else {
+                //Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar.make(drawer, "Press back again to exit", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+
+
+                backPressed = System.currentTimeMillis();
+            }
+
         }
     }
 
@@ -80,15 +94,33 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Under Development", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.share_app:
-                        Toast.makeText(MainActivity.this, "Share App", Toast.LENGTH_SHORT).show();
+                        shareApp();
                         break;
                     case R.id.share_feedback:
-                        Toast.makeText(MainActivity.this, "Share Feedback", Toast.LENGTH_SHORT).show();
+                        shareFeedback();
                         break;
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
+    }
+
+    public void shareApp() {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND)
+                .putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.app_name));
+        shareIntent.setType("text/plain");
+        startActivity(Intent.createChooser(shareIntent, "This is test"));
+    }
+
+    public void shareFeedback() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "nahashonmbuci@gmail.com", null));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "AGRI TECH FEEDBACK");
+        //intent.putExtra(Intent.EXTRA_CC, "nahashonmbuci@gmail.com");
+        intent.putExtra(Intent.EXTRA_TEXT, "Please explain your issue");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(Intent.createChooser(intent, "Send Email"));
+        }
     }
 }

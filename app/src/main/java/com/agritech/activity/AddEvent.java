@@ -1,8 +1,12 @@
 package com.agritech.activity;
 
+import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,14 +20,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 public class AddEvent extends AppCompatActivity {
 EditText eTitle,eDate, eLocation, eEntryFee;
 Button submit;
 DatabaseReference mRef;
+    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,9 @@ DatabaseReference mRef;
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(AddEvent.this, "Event added Successfully", Toast.LENGTH_SHORT).show();
+                    //playSound();//This method is used to play a notification onc message sent successfully
+                    player = MediaPlayer.create(getApplicationContext(), R.raw.notification);
+                    player.start();
                     finish();
                 }else{
                     Toast.makeText(AddEvent.this, "An Error occurred. Please try again"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -72,5 +78,16 @@ DatabaseReference mRef;
                 }
             }
         });
+    }
+
+    //This method is used to play a notification onc message sent successfully
+    public void playSound() {
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone ringtone = RingtoneManager.getRingtone(getApplicationContext(), notification);
+            ringtone.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

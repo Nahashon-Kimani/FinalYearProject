@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardMaxElevation="4dp"
-    app:cardBackgroundColor="@android:color/holo_blue_dark"
+    android:background="@drawable/event_bg"
     app:cardCornerRadius="4dp"
     android:layout_marginTop="2dp"
     app:cardElevation="4dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="265dp"
+        android:background="@drawable/b3">
 
 
         <ImageView
@@ -22,7 +23,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:contentDescription="@string/event_background"
-            android:src="@drawable/share" />
+            android:src="@android:drawable/ic_menu_share" />
 
         <TextView
             android:id="@+id/event_title"
@@ -32,6 +33,7 @@
             android:layout_marginTop="120dp"
             android:gravity="start"
             android:text="@string/event_name"
+            android:padding="4dp"
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -51,7 +53,8 @@
                 android:layout_weight=".5"
                 android:drawableStart="@drawable/ic_date"
                 android:drawableLeft="@drawable/date"
-                android:gravity="center"
+                android:drawablePadding="2dp"
+                android:gravity="start"
                 android:text="@string/event_date"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
@@ -63,7 +66,8 @@
                 android:layout_weight=".5"
                 android:drawableStart="@drawable/ic_location"
                 android:drawableLeft="@drawable/ic_location"
-                android:gravity="center"
+                android:drawablePadding="2dp"
+                android:gravity="start"
                 android:text="@string/location"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
@@ -122,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textAllCaps="true"
+                    android:text="@string/app_name"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

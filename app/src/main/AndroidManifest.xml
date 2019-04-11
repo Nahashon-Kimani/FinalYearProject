@@ -12,7 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AddEvent"></activity>
+        <activity
+            android:name=".activity.ReadArticle"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.Register"
+            android:theme="@style/AppTheme.NoActonBar" />
+        <activity
+            android:name=".activity.Login"
+            android:theme="@style/AppTheme.NoActonBar" />
+        <activity android:name=".activity.AddEvent" />
         <activity
             android:name=".activity.Forum"
             android:parentActivityName=".MainActivity" />
