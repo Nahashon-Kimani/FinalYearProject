@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.agritech.MainActivity;
 import com.agritech.R;
 import com.agritech.adapter.ChatRecyclerView;
 import com.agritech.model.ChatModel;

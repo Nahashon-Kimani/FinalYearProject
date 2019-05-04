@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.agritech.MainActivity;
 import com.agritech.R;
 import com.agritech.adapter.ArticleRecyclerAdapter;
 import com.agritech.model.ArticlesModel;

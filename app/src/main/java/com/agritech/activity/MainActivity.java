@@ -1,4 +1,4 @@
-package com.agritech;
+package com.agritech.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.agritech.activity.Forum;
+import com.agritech.R;
 import com.agritech.drawerFragment.Articles;
 import com.agritech.drawerFragment.Events;
 import com.agritech.drawerFragment.Officer;

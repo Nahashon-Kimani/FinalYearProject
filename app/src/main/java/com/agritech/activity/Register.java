@@ -94,9 +94,11 @@ public class Register extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         registerProgress.setVisibility(View.GONE);
                         //Getting the current registration time of user
+                        String uId = mAuth.getUid();
+                        Toast.makeText(Register.this, uId, Toast.LENGTH_SHORT).show();
                         String currentDate = DateFormat.getDateTimeInstance().format(new Date());
                         UserDetails details = new UserDetails(fullName, location, email, currentDate);
-                        FirebaseDatabase.getInstance().getReference("Users").push().setValue(details).
+                        FirebaseDatabase.getInstance().getReference("Users").child(uId).push().setValue(details).
                                 addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

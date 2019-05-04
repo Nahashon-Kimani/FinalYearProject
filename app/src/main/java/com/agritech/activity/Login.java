@@ -90,8 +90,10 @@ public class Login extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         startActivity(new Intent(Login.this, Forum.class));
                     } else {
-                        loginProgress.setVisibility(View.GONE);
-                        Toast.makeText(Login.this, "Wrong Credentials" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        loginProgress.setVisibility(View.INVISIBLE);
+                        Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        userPassword.setText("");
+                        userEmail.setText("");
                     }
                 }
             });

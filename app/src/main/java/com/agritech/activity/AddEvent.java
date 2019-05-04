@@ -60,24 +60,45 @@ DatabaseReference mRef;
         /*SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         String currentDate = sdf.format(new Date());*/
 
-        String currentDate = DateFormat.getDateTimeInstance().format(new Date());
+        //Validation of input details.
+        if (title.isEmpty()) {
+            eTitle.setError("Event Title should not be null");
+            eTitle.requestFocus();
+        }
+        if (date.isEmpty()) {
+            eDate.setError("Date should not be null");
+            eDate.requestFocus();
+        }
+        if (location.isEmpty()) {
+            eLocation.setError("Please input event Location");
+            eLocation.requestFocus();
+        }
+        if (entryFee.isEmpty()) {
+            eEntryFee.setError("Please input Entry Fee");
+            eEntryFee.requestFocus();
+        }
 
-        EventModel event = new EventModel(title, date, location, entryFee, "UP-Coming", currentDate);
-        mRef.push().setValue(event).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(AddEvent.this, "Event added Successfully", Toast.LENGTH_SHORT).show();
-                    //playSound();//This method is used to play a notification onc message sent successfully
-                    player = MediaPlayer.create(getApplicationContext(), R.raw.notification);
-                    player.start();
-                    finish();
-                }else{
-                    Toast.makeText(AddEvent.this, "An Error occurred. Please try again"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    finish();
+        if (!title.isEmpty() && !date.isEmpty() && !location.isEmpty() && !entryFee.isEmpty()) {
+            //Getting the input date of the event
+            String currentDate = DateFormat.getDateTimeInstance().format(new Date());
+
+            EventModel event = new EventModel(title, date, location, entryFee, "UP-Coming", currentDate);
+            mRef.push().setValue(event).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(AddEvent.this, "Event added Successfully", Toast.LENGTH_SHORT).show();
+                        //playSound();//This method is used to play a notification onc message sent successfully
+                        player = MediaPlayer.create(getApplicationContext(), R.raw.notification);
+                        player.start();
+                        finish();
+                    } else {
+                        Toast.makeText(AddEvent.this, "An Error occurred. Please try again" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     //This method is used to play a notification onc message sent successfully

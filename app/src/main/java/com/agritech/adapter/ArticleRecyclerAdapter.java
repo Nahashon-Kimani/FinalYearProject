@@ -53,7 +53,7 @@ public class ArticleRecyclerAdapter extends RecyclerView.Adapter<ArticleRecycler
         });
 
         //open a new Activity to read the whole article
-        myHolder.articleCardView.setOnClickListener(new View.OnClickListener() {
+        myHolder.articleDesc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ReadArticle.class);

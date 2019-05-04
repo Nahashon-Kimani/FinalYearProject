@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="12dp"
     tools:context=".activity.AddEvent">
 
     <LinearLayout
@@ -10,44 +12,107 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/e_title"
+        <android.support.design.widget.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/event_name"
-            android:inputType="text|textCapWords"
-            android:maxLength="50" />
+            android:textColorHint="@color/secondaryTextColor"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="30">
 
-        <EditText
-            android:id="@+id/e_date"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/e_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords|text"
+                android:maxLength="30"
+                android:textColor="@color/secondaryTextColor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/event_date"
-            android:inputType="date"
-            android:maxLength="20" />
+            android:textColorHint="@color/secondaryTextColor"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp">
 
-        <EditText
-            android:id="@+id/e_location"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/e_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:maxLength="20"
+                android:textColor="@color/secondaryTextColor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/event_location"
-            android:inputType="text|textCapWords"
-            android:maxLength="20" />
+            android:textColorHint="@color/secondaryTextColor"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="20">
 
-        <EditText
-            android:id="@+id/e_entry_fee"
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/e_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text|textCapWords"
+                android:maxLength="20"
+                android:textColor="@color/secondaryTextColor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/event_fee"
-            android:inputType="text|textCapWords"
-            android:maxLength="20" />
+            android:hint="@string/entry_fee"
+            android:textColorHint="@color/secondaryTextColor"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="4dp"
+            app:boxCornerRadiusBottomStart="4dp"
+            app:boxCornerRadiusTopEnd="4dp"
+            app:boxCornerRadiusTopStart="4dp">
 
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/e_entry_fee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text|textCapWords"
+                android:maxLength="20"
+                android:textColor="@color/secondaryTextColor" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/submit" />
+            android:background="@color/secondaryLightColor"
+            android:padding="12dp"
+            android:text="@string/submit"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="30sp" />
     </LinearLayout>
 
 </ScrollView>
