@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.RegisteredPeople"></activity>
+        <activity android:name=".activity.SettingActivity" />
         <activity
-            android:name=".SplashScreen"
-            android:theme="@style/AppTheme.NoActonBar">
+            android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,11 +26,9 @@
             android:name=".activity.ReadArticle"
             android:parentActivityName=".activity.MainActivity" />
         <activity
-            android:name=".activity.Register"
-            android:theme="@style/AppTheme.NoActonBar" />
+            android:name=".activity.Register" />
         <activity
-            android:name=".activity.Login"
-            android:theme="@style/AppTheme.NoActonBar" />
+            android:name=".activity.Login" />
         <activity
             android:name=".activity.AddEvent"
             android:parentActivityName=".activity.MainActivity" />

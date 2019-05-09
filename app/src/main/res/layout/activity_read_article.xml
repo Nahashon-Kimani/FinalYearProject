@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/share_article"
+            android:hint="@string/share_article"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
@@ -26,7 +26,7 @@
             android:id="@+id/read_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/desc" />
+            android:hint="@string/desc" />
 
     </LinearLayout>
 </ScrollView>

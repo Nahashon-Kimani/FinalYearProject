@@ -59,7 +59,7 @@ public class ArticleRecyclerAdapter extends RecyclerView.Adapter<ArticleRecycler
                 Intent intent = new Intent(context, ReadArticle.class);
                 intent.putExtra("title", articlesList.get(i).getArticleTitle());
                 intent.putExtra("desc", articlesList.get(i).getArticleDesc());
-                Toast.makeText(context, articlesList.get(i).getArticleTitle() + articlesList.get(i).getArticleDesc(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, articlesList.get(i).getArticleTitle() + articlesList.get(i).getArticleDesc(), Toast.LENGTH_SHORT).show();
                 v.getContext().startActivity(intent);
             }
         });

@@ -12,7 +12,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.agritech.R;
 import com.agritech.drawerFragment.Articles;
@@ -91,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, Forum.class));
                         break;
                     case R.id.app_setting:
-                        Toast.makeText(MainActivity.this, "Under Development", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Under Development", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, SettingActivity.class));
                         break;
                     case R.id.share_app:
                         shareApp();

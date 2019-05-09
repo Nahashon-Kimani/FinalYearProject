@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/article_type"
             android:layout_toRightOf="@+id/article_type"
+            android:layout_above="@+id/article_desc"
             android:gravity="center"
             android:text="@string/crop_production"
             android:textAllCaps="true"
@@ -36,6 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/article_type"
+            android:ellipsize="end"
+            android:maxLines="5"
             android:text="@string/desc" />
 
         <com.sackcentury.shinebuttonlib.ShineButton

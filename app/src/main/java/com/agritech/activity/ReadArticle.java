@@ -19,13 +19,12 @@ public class ReadArticle extends AppCompatActivity {
         readTitle = findViewById(R.id.read_title);
         readDesc = findViewById(R.id.read_desc);
 
-        Intent intent = new Intent();
+        Intent intent = getIntent();
         String desc = intent.getStringExtra("desc");
         String title = intent.getStringExtra("title");
-        Toast.makeText(ReadArticle.this, desc + "\n" + title, Toast.LENGTH_SHORT).show();
 
-        readDesc.setText(intent.getStringExtra("desc"));
-        readDesc.setText(intent.getStringExtra("title"));
+        readDesc.setText(desc);
+        readTitle.setText(title);
 
     }
 }

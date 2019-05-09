@@ -56,4 +56,13 @@
     <string name="user_profile">User Profile</string>
     <string name="search">Search</string>
     <string name="login_here">Already have account? LOgin here</string>
+    <string name="send_message">Send Message</string>
+    <string name="enter_text_here">Enter Text Here</string>
+    <string name="view_register">Registered People</string>
+
+    <string-array name="user_p">
+        <item>User Profile</item>
+        <item>Sounds</item>
+        <item>App Theme</item>
+    </string-array>
 </resources>

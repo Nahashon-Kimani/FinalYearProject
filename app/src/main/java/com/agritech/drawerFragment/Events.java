@@ -17,6 +17,7 @@ import com.agritech.R;
 import com.agritech.activity.AddEvent;
 import com.agritech.adapter.EventRecyclerAdapter;
 import com.agritech.model.EventModel;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,7 +60,7 @@ public class Events extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "An error occurred"+databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "An error occurred" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -69,8 +70,6 @@ public class Events extends Fragment {
                 startActivity(new Intent(getContext(), AddEvent.class));
             }
         });
-
-
         return view;
     }
 }

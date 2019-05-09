@@ -14,19 +14,27 @@ import android.widget.Toast;
 
 import com.agritech.R;
 import com.agritech.model.EventModel;
+import com.agritech.model.UserDetails;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Date;
 
 public class AddEvent extends AppCompatActivity {
-EditText eTitle,eDate, eLocation, eEntryFee;
-Button submit;
-DatabaseReference mRef;
+    EditText eTitle, eDate, eLocation, eEntryFee;
+    Button submit;
+    DatabaseReference mRef;
     MediaPlayer player;
+    FirebaseAuth mAuth;
+    String userID;
+    String senderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +47,27 @@ DatabaseReference mRef;
         eEntryFee = findViewById(R.id.e_entry_fee);
         submit = findViewById(R.id.submit);
 
+        //getting the current user
+        mAuth = FirebaseAuth.getInstance();
 
+        if (mAuth.getCurrentUser() != null) {
+            userID = mAuth.getCurrentUser().getUid();
+            FirebaseDatabase.getInstance().getReference().child("Users").child(userID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                        UserDetails details = snapshot.getValue(UserDetails.class);
+                        senderName = details.getName().toUpperCase();
+                        Toast.makeText(AddEvent.this, senderName, Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-        mRef = FirebaseDatabase.getInstance().getReference().child("Events");
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +77,11 @@ DatabaseReference mRef;
         });
 
     }
-    public void setNewEvent(){
+
+    public void setNewEvent() {
         String title = eTitle.getText().toString().trim();
         String date = eDate.getText().toString().trim();
-        String location =  eLocation.getText().toString().trim();
+        String location = eLocation.getText().toString().trim();
         String entryFee = eEntryFee.getText().toString().trim();
 
         /*SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -82,8 +109,8 @@ DatabaseReference mRef;
             //Getting the input date of the event
             String currentDate = DateFormat.getDateTimeInstance().format(new Date());
 
-            EventModel event = new EventModel(title, date, location, entryFee, "UP-Coming", currentDate);
-            mRef.push().setValue(event).addOnCompleteListener(new OnCompleteListener<Void>() {
+            EventModel event = new EventModel(title, date, location, entryFee, "UP-Coming", currentDate, senderName);
+            FirebaseDatabase.getInstance().getReference().child("Events").push().setValue(event).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {

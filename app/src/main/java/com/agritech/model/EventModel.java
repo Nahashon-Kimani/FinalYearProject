@@ -1,16 +1,19 @@
 package com.agritech.model;
 
 public class EventModel {
-    private String eventTitle, eventDate, eventLocation, eventFee, eventStatus, eventInputDate;
-    public EventModel() {}
+    private String eventTitle, eventDate, eventLocation, eventFee, eventStatus, eventInputDate, inputBy;
 
-    public EventModel(String eventTitle, String eventDate, String eventLocation, String eventFee, String eventStatus, String eventInputDate) {
+    public EventModel() {    }
+
+    public EventModel(String eventTitle, String eventDate, String eventLocation,
+                      String eventFee, String eventStatus, String eventInputDate, String inputBy) {
         this.eventTitle = eventTitle;
         this.eventDate = eventDate;
         this.eventLocation = eventLocation;
         this.eventFee = eventFee;
         this.eventStatus = eventStatus;
         this.eventInputDate = eventInputDate;
+        this.inputBy = inputBy;
     }
 
     public String getEventTitle() {
@@ -59,5 +62,13 @@ public class EventModel {
 
     public void setEventInputDate(String eventInputDate) {
         this.eventInputDate = eventInputDate;
+    }
+
+    public String getInputBy() {
+        return inputBy;
+    }
+
+    public void setInputBy(String inputBy) {
+        this.inputBy = inputBy;
     }
 }
